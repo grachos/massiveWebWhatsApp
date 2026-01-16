@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Web Sender</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>WhatsApp Web Sender</h1>
+            <p class="subtitle">Automated Messaging Tool</p>
+        </header>
+
+        <main class="grid-layout">
+            <!-- Input Section -->
+            <section class="card input-section">
+                <div class="form-group">
+                    <label for="numbers">Phone Numbers</label>
+                    <textarea id="numbers" placeholder="Enter numbers (one per line)...&#10;1234567890&#10;0987654321"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" placeholder="Type your message here..."></textarea>
+                </div>
+
+                <div class="controls">
+                    <button id="startBtn" class="btn btn-primary" onclick="startSending()">
+                        <span class="icon">▶</span> Start Sending
+                    </button>
+                    <button id="stopBtn" class="btn btn-danger" onclick="stopSending()" disabled>
+                        <span class="icon">⏹</span> Stop
+                    </button>
+                </div>
+            </section>
+
+            <!-- Log Section -->
+            <section class="card log-section">
+                <div class="log-header">
+                    <h2>Live Logs</h2>
+                    <button class="btn-clear" onclick="clearLogs()">Clear</button>
+                </div>
+                <div id="logContainer" class="log-container">
+                    <div class="log-entry info">[SYSTEM] Ready to start...</div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

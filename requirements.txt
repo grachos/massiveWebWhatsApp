@@ -1,0 +1,7 @@
+Flask
+Flask-SocketIO
+selenium
+webdriver-manager
+eventlet
+gevent
+gevent-websocket
