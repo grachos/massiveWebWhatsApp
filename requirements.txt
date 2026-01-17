@@ -1,7 +1,5 @@
 Flask
 Flask-SocketIO
 selenium
-webdriver-manager
-eventlet
+gunicorn
 gevent
-gevent-websocket
