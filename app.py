@@ -1,3 +1,6 @@
+from gevent import monkey
+monkey.patch_all()
+
 import time
 import urllib.parse
 import os
@@ -181,8 +184,8 @@ def handle_start(data):
         return
 
     emit('log', {'message': 'Starting bot process...', 'type': 'info'})
-    bot_thread = threading.Thread(target=run_bot, args=(numbers, message))
-    bot_thread.start()
+    emit('log', {'message': 'Starting bot process...', 'type': 'info'})
+    bot_thread = socketio.start_background_task(run_bot, numbers, message)
 
 @socketio.on('stop_sending')
 def handle_stop():
