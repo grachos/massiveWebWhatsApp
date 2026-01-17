@@ -1,4 +1,4 @@
-const socket = io();
+const socket = io({ transports: ['websocket'] });
 
 const startBtn = document.getElementById('startBtn');
 const stopBtn = document.getElementById('stopBtn');
@@ -57,7 +57,7 @@ function addLog(message, type = 'info') {
     div.className = `log-entry ${type}`;
     const timestamp = new Date().toLocaleTimeString();
     div.textContent = `[${timestamp}] ${message}`;
-    
+
     logContainer.appendChild(div);
     logContainer.scrollTop = logContainer.scrollHeight;
 }
