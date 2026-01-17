@@ -3,3 +3,4 @@ Flask-SocketIO
 selenium
 gunicorn
 gevent
+gevent-websocket
